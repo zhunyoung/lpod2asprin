@@ -1,0 +1,4 @@
+% file name: abcd.txt
+
+a >> b :- not c.
+b >> c :- not d.
