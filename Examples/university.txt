@@ -1,0 +1,30 @@
+% We need to choose a university and a major from 3 universities and 3 majors: computer science & engineering (major(1)), electrical engineering (major(2)), and industrial engineering (major(3)). 
+
+dom(1..3).
+
+:- univ(X), univ(Y), dom(X), dom(Y), X!=Y.
+:- major(X), major(Y), dom(X), dom(Y), X!=Y.
+
+% We have a preference on majors
+major(1) >> major(2) >> major(3).
+
+% We have a specific preference on the majors for each university
+
+major(1) >> major(3) >> major(2) :- univ(1).
+major(2) >> major(3) >> major(1) :- univ(2).
+major(2) >> major(1) >> major(3) :- univ(3).
+
+% We know the ranking of the universities
+
+univ(3) >> univ(1) >> univ(2).
+
+% We know the ranking of the universities for each major
+
+univ(3) >> univ(1) >> univ(2) :- major(1).
+univ(1) >> univ(2) >> univ(3) :- major(2).
+univ(2) >> univ(3) >> univ(1) :- major(3).
+
+% There are some majors in some universities that our applications were rejected
+:- univ(1), major(1).
+:- univ(3), major(1).
+:- univ(3), major(2).
