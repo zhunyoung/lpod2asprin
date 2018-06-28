@@ -1,0 +1,17 @@
+% We need to choose a hotel from n hotels. We randomly assign the order of their price, distance, and service.
+
+1{hotel(X): dom(X)}1.
+
+price(X) :- hotel(X), dom(X).
+distance(X) :- hotel(X), dom(X).
+service(X) :- hotel(X), dom(X).
+
+:- hotel(X), price(Y), X!=Y, dom(X), dom(Y).
+:- hotel(X), distance(Y), X!=Y, dom(X), dom(Y).
+:- hotel(X), service(Y), X!=Y, dom(X), dom(Y).
+
+dom(1..70).
+
+price(44) >> price(1) >> price(65) >> price(46) >> price(8) >> price(21) >> price(13) >> price(57) >> price(34) >> price(31) >> price(19) >> price(58) >> price(14) >> price(47) >> price(41) >> price(9) >> price(2) >> price(39) >> price(45) >> price(55) >> price(59) >> price(70) >> price(35) >> price(17) >> price(53) >> price(3) >> price(56) >> price(30) >> price(20) >> price(22) >> price(16) >> price(37) >> price(29) >> price(7) >> price(4) >> price(64) >> price(18) >> price(11) >> price(26) >> price(23) >> price(33) >> price(28) >> price(12) >> price(62) >> price(61) >> price(24) >> price(60) >> price(42) >> price(68) >> price(66) >> price(48) >> price(36) >> price(38) >> price(10) >> price(27) >> price(6) >> price(32) >> price(15) >> price(40) >> price(5) >> price(52) >> price(43) >> price(67) >> price(49) >> price(69) >> price(63) >> price(25) >> price(50) >> price(51) >> price(54).
+distance(27) >> distance(43) >> distance(32) >> distance(13) >> distance(46) >> distance(29) >> distance(60) >> distance(63) >> distance(34) >> distance(19) >> distance(41) >> distance(45) >> distance(54) >> distance(56) >> distance(49) >> distance(39) >> distance(42) >> distance(9) >> distance(7) >> distance(8) >> distance(59) >> distance(67) >> distance(53) >> distance(64) >> distance(38) >> distance(11) >> distance(68) >> distance(24) >> distance(22) >> distance(18) >> distance(30) >> distance(33) >> distance(36) >> distance(70) >> distance(6) >> distance(17) >> distance(26) >> distance(16) >> distance(51) >> distance(2) >> distance(14) >> distance(44) >> distance(10) >> distance(50) >> distance(57) >> distance(55) >> distance(28) >> distance(3) >> distance(40) >> distance(35) >> distance(1) >> distance(5) >> distance(37) >> distance(48) >> distance(23) >> distance(69) >> distance(61) >> distance(62) >> distance(12) >> distance(4) >> distance(58) >> distance(66) >> distance(21) >> distance(47) >> distance(15) >> distance(25) >> distance(52) >> distance(65) >> distance(20) >> distance(31).
+service(63) >> service(64) >> service(70) >> service(1) >> service(57) >> service(25) >> service(16) >> service(23) >> service(3) >> service(55) >> service(5) >> service(66) >> service(43) >> service(15) >> service(22) >> service(26) >> service(65) >> service(56) >> service(27) >> service(8) >> service(54) >> service(61) >> service(37) >> service(49) >> service(36) >> service(13) >> service(59) >> service(21) >> service(52) >> service(31) >> service(45) >> service(19) >> service(38) >> service(4) >> service(39) >> service(51) >> service(2) >> service(42) >> service(29) >> service(17) >> service(7) >> service(32) >> service(28) >> service(34) >> service(40) >> service(9) >> service(41) >> service(20) >> service(69) >> service(58) >> service(10) >> service(18) >> service(33) >> service(24) >> service(46) >> service(11) >> service(62) >> service(30) >> service(47) >> service(68) >> service(60) >> service(53) >> service(12) >> service(44) >> service(14) >> service(48) >> service(35) >> service(50) >> service(67) >> service(6).

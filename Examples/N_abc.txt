@@ -1,0 +1,13 @@
+% file name: N_abc.txt
+% please add "-c n=<integer>" in your command line to define the value of n
+
+dom(1..n).
+
+1{a(X): dom(X)}2.
+1{c(X): dom(X)}2.
+
+% b is true iff a is false
+b(X) :- dom(X), not a(X).
+:- a(X), b(X).
+
+a(X) >> b(X) :- c(X).
