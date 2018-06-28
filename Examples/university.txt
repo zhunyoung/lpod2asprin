@@ -1,3 +1,5 @@
+% file name: university.txt
+
 % We need to choose a university and a major from 3 universities and 3 majors: computer science & engineering (major(1)), electrical engineering (major(2)), and industrial engineering (major(3)). 
 
 dom(1..3).
