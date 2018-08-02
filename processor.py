@@ -57,8 +57,7 @@ def solve():
 
 def clean():
     os.remove("parsed_temp.pl")
-    os.remove("parser.out")
-    os.remove("parsetab.py")
+    # os.remove("parsetab.py")
     os.remove("arg_proce.pyc")
     os.remove("lexer_grammar.pyc")
     os.remove("processor.pyc")
