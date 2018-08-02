@@ -35,7 +35,7 @@ python main.py -i input.txt -type k
 ## Example
 To find the ps-preferred answer set of the hotel example, you can execute
 ```
-python main.py -i Examples/hotel.txt -type ps
+python lpod2asprin.py -i Examples/hotel.txt -type ps
 ```
 which will output
 ```
