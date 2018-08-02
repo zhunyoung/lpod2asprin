@@ -61,6 +61,8 @@ def clean():
     os.remove("arg_proce.pyc")
     os.remove("lexer_grammar.pyc")
     os.remove("processor.pyc")
+    if os.path.isfile("parser.out"):
+        os.remove("parser.out")
     if os.path.isfile("parsetab.pyc"):
         os.remove("parsetab.pyc")
 
