@@ -7,7 +7,8 @@ import lexer_grammar_dev as lexer_grammar
 import os
 arg_list = {
     'file_name':"",
-    'lpodPrefType':""
+    'lpodPrefType':"",
+    'constant':""
 }
 
 def arg_processor(arglist):
@@ -22,6 +23,9 @@ def arg_processor(arglist):
     for item in arglist:
         if "-c lpodPrefType=" in item:
             arg_list['lpodPrefType'] = str(item[item.find("=")+1:])
+        if "-constant" in item:
+            print(item)
+            arg_list['constant'] = " -c " + str(item[item.find("constant")+9:])
 
     print("Type of LPOD preference criterion: " + arg_list['lpodPrefType'] + "\n")
 
@@ -39,7 +43,7 @@ def begin_parse():
 
 def solve():
 
-    command = "asprin " + os.getcwd()+"/lpod.lp " + os.getcwd() + "/parsed_temp.pl 0 -c lpodPrefType=" + arg_list['lpodPrefType']
+    command = "asprin " + os.getcwd()+"/lpod.lp " + os.getcwd() + "/parsed_temp.pl 0 -c lpodPrefType=" + arg_list['lpodPrefType'] + arg_list['constant']
     # print(command)
     os.system(command)
 
@@ -50,16 +54,4 @@ def clean():
     os.remove("parsed_temp.pl")
     os.remove("parser.out")
     os.remove("parsetab.py")
-
-
-
-
-
-
-
-
-
-
-
-
 
