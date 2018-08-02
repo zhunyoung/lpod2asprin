@@ -24,7 +24,6 @@ def arg_processor(arglist):
         if "-c lpodPrefType=" in item:
             arg_list['lpodPrefType'] = str(item[item.find("=")+1:])
         if "-constant" in item:
-            print(item)
             arg_list['constant'] = " -c " + str(item[item.find("constant")+9:])
 
     print("Type of LPOD preference criterion: " + arg_list['lpodPrefType'] + "\n")
