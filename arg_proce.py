@@ -28,6 +28,7 @@ def main():
     parser = argparse.ArgumentParser(description='LPOD2ASPRIN')
     parser.add_argument('-i', help='input file. [REQUIRED]', nargs=1)
     parser.add_argument('-type', help='lpod preference type, by default is p', nargs=1)
+    parser.add_argument('-c', help='define constant.', nargs=1)
 
     args = parser.parse_args()
 
@@ -44,6 +45,9 @@ def main():
         arglist.append("-c lpodPrefType="+args.type[0])
     else:
         arglist.append("-c lpodPrefType=p")
+    
+    if args.c is not None:
+        arglist.append("-constant "+args.c[0])
 
 
     return arglist
