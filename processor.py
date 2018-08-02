@@ -50,7 +50,7 @@ def begin_parse():
 def solve():
 
     command = "asprin " + os.getcwd()+"/lpod.lp " + os.getcwd() + "/parsed_temp.pl 0 -c lpodPrefType=" + arg_list['lpodPrefType'] + arg_list['constant'] + arg_list['asprin']
-    print(command)
+    # print(command)
     os.system(command)
 
 
