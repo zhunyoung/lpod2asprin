@@ -1,14 +1,15 @@
 '''from lexer_grammar import parser as parser
 import lexer_grammar'''
 
-from lexer_grammar_dev import parser as parser
-import lexer_grammar_dev as lexer_grammar
+from lexer_grammar import parser as parser
+import lexer_grammar
 
 import os
 arg_list = {
     'file_name':"",
     'lpodPrefType':"",
-    'constant':""
+    'constant':"",
+    'asprin':""
 }
 
 def arg_processor(arglist):
@@ -16,17 +17,23 @@ def arg_processor(arglist):
     global arg_list
     arg_list['file_name'] =arglist[0]
 
-    print("\nInput LPOD program: " + arg_list['file_name'])
+    print("\nInput LPOD program:   " + arg_list['file_name'])
     
 
     arglist = arglist[1:]
     for item in arglist:
         if "-c lpodPrefType=" in item:
             arg_list['lpodPrefType'] = str(item[item.find("=")+1:])
+            print("Preference Criterion: " + arg_list['lpodPrefType'])
         if "-constant" in item:
             arg_list['constant'] = " -c " + str(item[item.find("constant")+9:])
+            print("Constant Assignment:  " + str(item[item.find("constant")+9:]))
+        if "-asprin" in item:
+        	arg_list['asprin'] = " " + str(item[item.find("asprin")+7:])
+        	print("Asprin Options:      " + arg_list['asprin'])
+    print(" ")
 
-    print("Type of LPOD preference criterion: " + arg_list['lpodPrefType'] + "\n")
+    
 
 def begin_parse():
 
@@ -42,15 +49,19 @@ def begin_parse():
 
 def solve():
 
-    command = "asprin " + os.getcwd()+"/lpod.lp " + os.getcwd() + "/parsed_temp.pl 0 -c lpodPrefType=" + arg_list['lpodPrefType'] + arg_list['constant']
-    # print(command)
+    command = "asprin " + os.getcwd()+"/lpod.lp " + os.getcwd() + "/parsed_temp.pl 0 -c lpodPrefType=" + arg_list['lpodPrefType'] + arg_list['constant'] + arg_list['asprin']
+    print(command)
     os.system(command)
 
 
 
 def clean():
-    os.remove("combine_temp.pl")
     os.remove("parsed_temp.pl")
     os.remove("parser.out")
     os.remove("parsetab.py")
+    os.remove("arg_proce.pyc")
+    os.remove("lexer_grammar.pyc")
+    os.remove("processor.pyc")
+    if os.path.isfile("parsetab.pyc"):
+        os.remove("parsetab.pyc")
 

@@ -25,10 +25,23 @@ def processOutput(output, mf):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='LPOD2ASPRIN')
-    parser.add_argument('-i', help='input file. [REQUIRED]', nargs=1)
+    example_text = '''Examples:
+
+1. Only input file is required. (By default, the Pareto-preferred answer sets will be returned.)
+  $ python lpod2asprin.py -i Examples/hotel.txt
+
+2. You can also assign the preference type to one of {c, i, p, ps}.
+  $ python lpod2asprin.py -i Examples/hotel.txt -type c
+
+3. You can pass some options to asprin solver with [-a "OPTIONS"]. If the option is a single constant assignment such as "-c n=3", you can directly put it as an option.
+  $ python lpod2asprin.py -i Examples/N_abc.txt -type c -a "-c n=3"
+  $ python lpod2asprin.py -i Examples/N_abc.txt -type c -sc n=3'''
+
+    parser = argparse.ArgumentParser(description='LPOD2ASPRIN: an LPOD solver using asprin', epilog=example_text, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('-i', help='input file. [REQUIRED]', nargs=1, required=True)
     parser.add_argument('-type', help='lpod preference type, by default is p', nargs=1)
-    parser.add_argument('-c', help='define constant.', nargs=1)
+    parser.add_argument('-sc', help='define single constant', nargs=1)
+    parser.add_argument('-a', help='asprin options passed as it is to the solver. Pass all asprin options in \"double quotes\"', nargs=1)
 
     args = parser.parse_args()
 
@@ -45,9 +58,12 @@ def main():
         arglist.append("-c lpodPrefType="+args.type[0])
     else:
         arglist.append("-c lpodPrefType=p")
-    
-    if args.c is not None:
-        arglist.append("-constant "+args.c[0])
+
+    if args.sc is not None:
+        arglist.append("-constant "+args.sc[0])
+
+    if args.a is not None:
+        arglist.append("-asprin "+args.a[0].strip("\""))
 
 
     return arglist
