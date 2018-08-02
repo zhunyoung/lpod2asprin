@@ -29,7 +29,7 @@ cd lpod2asprin
 ## Usage
 There are 4 preference criteria for LPOD: cardinality `c`, inclusion `i`, Pareto `p`, and penalty-sum `ps`. You can find the k-preferred (k is one of {c, i, p, ps}) answer set of an LPOD stored in file `input.txt` by executing
 ```
-python main.py -i input.txt -type k
+python lpod2asprin.py -i input.txt -type k
 ```
 
 ## Example
