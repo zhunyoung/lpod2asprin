@@ -1,5 +1,5 @@
 % file name: N_abc.txt
-% please add "-c n=<integer>" in your command line to define the value of n
+% please add "-sc n=<integer>" in your command line to define the value of n
 
 dom(1..n).
 
